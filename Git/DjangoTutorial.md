@@ -22,11 +22,12 @@
 アプリケーションを manage.py と同じディレクトリで作成することで　mysite のサブモジュールとしてでなく、トップレベルのモジュールとしてインポートする。
 ここでは、Djangoチュートリアルのpollsアプリの作成事例
 
+### urls.py　はなにか
 
 - `urls.py` はURLとWEBページを紐付ける機能。プロジェクト全体とアプリケーション毎に`urls.py`がある。
 - アプリケーションごとの`urls.py`は自動では作成されないのでアプリケーション作成時に自分で作る必要がある
 ```python
-    from django.contrib import admin
+from django.contrib import admin
 from django.urls import path, include
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -53,7 +54,22 @@ urlpatterns = [
 - 各モデルはPythonのクラスで、`django.db.models.Models`のサブクラスである
 - モデルはデータベースに深い繋がりがある
 - モデルを使うとデータベースの管理を楽にする
+- モデルはサイトを構成するデータソース（主にデータベース）へのアクセスを請け負う
+- モデルクラスはクラスである以上、PythonのClassの書き方に準じる
+- データベースのテーブル名、カラム名、データ型、その他は、モデルクラスではクラス名、クラス変数、クラス変数に代入するオブジェクト（Fieldクラスのインスタンス）、Fieldクラスのオプションに紐づく
+
+#### モデル作成の手順
+1. models.py　を編集
+1. ` python manage.py makemigrations` を実行
+1. `python manage.py migrate` を実行
 
 
-###　疑問
+### 管理画面を作る
+
+`python manage.py createsuperuser`  
+
+
+
+### 疑問
 - include()関数を使う意味
+プロジェクト全体の`urls.py`はきれいなままにしたい。そのために、アプリケーションからURLをインポートするだけにする。そのためにinclude関数を使う。
