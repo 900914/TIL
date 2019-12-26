@@ -1,8 +1,6 @@
 ## Djangoの基本
 
 - MTV（Model – Template – View)モデルに基づいて作られている
-
-[チュートリアル]('https://docs.djangoproject.com/ja/3.0/intro/tutorial01/')
 - Djangoは１つのアプリケーションをプロジェクトと呼ぶ
 - Django標準の開発サーバーは、本番環境では使わないこと  
 
