@@ -24,7 +24,7 @@ Git/GitHubについてのTIL
 $ touch .gitignore
 ```
 .gitignoreの編集
-``` .gitignore
+```text:.gitignore
 .DS_Store
 ```
 
