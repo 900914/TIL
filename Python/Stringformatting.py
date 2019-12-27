@@ -11,6 +11,7 @@ print('also same as %d' % (a))
 format_list = ['鶴','亀']
 print('{}は1000年,{}は10000年'.format(*format_list))
 
+
 # unpack sample
 t = (0, 1, 2)
 a, b, c = t
