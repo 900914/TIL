@@ -23,3 +23,19 @@ Git/GitHubについてのTIL
 ```
 $ touch .gitignore
 ```
+.gitignoreの編集
+``` .gitignore
+.DS_Store
+```
+
+キャッシュを削除する（すでに作られているものは反映されないので、キャッシュクリア）  
+```
+$ git rm -r --chached .
+```
+
+pushする
+```
+$ git add .
+$ git commit -m 'create .gitignore'
+$ git push origin master
+```
