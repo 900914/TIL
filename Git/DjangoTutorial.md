@@ -1,5 +1,15 @@
 ## Djangoの基本
 
+### 全体像を把握したい
+流れはこうだろう
+1. ブラウザからリクエスト来る
+1. プロジェクト全体のurls.pyが受け取る
+1. リクエストの内容（URL）に応じて、urlpatternsの中から適合するURLを探す
+1. アプリ側のurls.pyに指示をする
+1. アプリ側のurls.pyは、views.pyに指示を出す
+1. views.pyに書かれた処理が実行される。views.pyはtemplete(HTML,CSS)やmodels.py(データ）から必要なデータを持ってきて処理する
+
+
 - MTV（Model – Template – View)モデルに基づいて作られている
     - Model : データベースに格納されているデータ
     - Template ：　テンプレートファイルによって定義されたそれぞれのページデザイン
@@ -50,6 +60,8 @@ urlpatterns = [
 `$ python manage.py migrate`
 
 - `mysite/settings.py`にある INSTALLED_APPS はデフォルトでいくつか入っている。よく利用されているものだが、削除（コメントアウトなど）しても良い。これらのアプリケーションでは最低１つのデータベースを利用するので、データベースを作る。
+- マイグレーション（migrate）はプログラムからDBを自動生成すること。DjangoではSQLを書いてDBを定義するのではなく、マイグレーションによってDBを定義する。
+- DB操作も、SQLで行わずオブジェクト関係マッピング（ORM）方法で行う。
 
 ### モデルを作る
 
