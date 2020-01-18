@@ -33,7 +33,14 @@ kaggle competitions download -c home-credit-default-risk -p ./
 - `Plotting`
     - `lightgbm.plot_importance`
     - `lightgbm.plot_split_value_histogram`
-
+- `LightGBM.train()`に`early_stopping_rounds`パラメータを渡すことによって、最適なブーストラウンド数を最適化する。`10`を指定すれば、10ラウンド進めても性能に改善が見られない場合はそこでストップさせる。あまり小さい数値だと、局所最適となってしまう。この機能を使う場合は、学習用データとは別に、`valid_sets`オプションで評価用データを渡す必要がある。
+- `lightgbm.train()`の引数
+    - `params` 各種パラメータ
+    - `lgb_train` トレーニングデータとテストデータ（評価用）データの説明変数が格納されている、`lgb.dataset`を指定
+    - `valid_sets` は、説明変数と目的変数セットを1つにして指定。具体的には、`valid_set=(lgb_train, lgb_test)`にて指定。※ `lgb_test`だけで良いのか調査
+    - `num_boost_round`は、`=10000`なら、学習を100000回繰り返すということ。
+    - `early_stopping_round`は、過学習を防ぐためのもの。`=100`とすれば、100回くらい学習して、過学習しているようならベストなサイクルで学習を終了させる。`num_boost_round`で大きな数値だとしても、学習が止まる。
+    - `varbose_eval`は、`=50`なら、学習過程を50サイクルずつ表示
 ## caegory_encoders
 
 
@@ -82,3 +89,7 @@ KaggleにあるTrain/Testデータを利用
 - dataset['AgeBin'] = pd.cut(dataset['Age'].astype(int), 5)
 - `lgb.__version__` でversion確認
 
+### もう一度、読みます
+
+- https://speakerdeck.com/takapy/xue-xi-tui-lun-paipurainwogou-zhu-surushang-deda-qie-nisiteirukoto
+- http://rin-effort.com/2020/01/14/machine-learning-9/
