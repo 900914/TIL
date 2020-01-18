@@ -48,6 +48,34 @@ kaggle competitions download -c home-credit-default-risk -p ./
 ### 参考 Kernel
 https://www.kaggle.com/weidoudou/a-data-science-framework-to-achieve-99-accuracy  
 
+データサイエンスのフレームワーク
+1. Define the Problem
+タイタニック号の沈没時の生存結果を予測するアルゴリズムの開発
+1. Gather the Data
+KaggleにあるTrain/Testデータを利用
+1. Prepare Data for Consumption
+    1. Correcting：異常値と外れ値の対策  
+    今回はとくになし
+    1. Completing：欠損値の補完
+    年齢を中央地、出港地を最頻値、運賃を中央値で補完など
+    1. Creating：特徴量の生成  
+    ファミリーサイズの生成など
+    1. Converting：機械学習の入力値のために数値化  
+    ダミー変数化、連続値の離散化など
+1. Perform Exploratory Analysis  
+ビジュアライゼーションして、データを調べる。変数の説明・要約をする。また、説明変数と目的変数の相関関係を調べる。
+1. Model Data  
+データサイエンスは、数学・コンピュータサイエンス・ビジネスマネジメントの学際的な領域である。どれが欠けても良いことはない。Kernelを通じて学ぶべきことは、何をしているかよりも、なぜするのかである。  
+- 目的・テーマ設計：ビジネス力が重要
+- 問題提議：データサイエンス力が重要
+- アプローチの設計：データサイエンス力（数学含む）が重要
+- 処理・分析：データエンジニア力（数学含む）が重要
+- 解決実行：ビジネス力が重要
+1. Validate and Implement Data Model
+生存率が80％程度になったら、次はROIを考えたほうがいい。数ヶ月で予測精度が0.1％向上したとしても、ビジネスへのインパクトは微々たるもの。モデル改良はROI（学習時間を費用換算してもいい）をよく考えて取り掛かるべき。QCDの観点ともいえる。Qualityは最優先だが、CostとDeliveryも視野に入れるべき。  
+タイタニック問題は、Survived＝０（つまり死亡）が1,502/2,224であることが事実として存在する。したがって、全て０予測したとしても、精度は67.5%である。ベースラインとなる精度（Baseline Accuracy)は、この68%である。
+1. Optimize and Strategize
+
 - data1 = data_raw.copy(deep = True) なぜディープコピーするのか
 - data_raw.sample(10) 利用
 - dataset['FareBin'] = pd.qcut(dataset['Fare'], 4)
