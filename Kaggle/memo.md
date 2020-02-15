@@ -93,3 +93,4 @@ KaggleにあるTrain/Testデータを利用
 
 - https://speakerdeck.com/takapy/xue-xi-tui-lun-paipurainwogou-zhu-surushang-deda-qie-nisiteirukoto
 - http://rin-effort.com/2020/01/14/machine-learning-9/
+- http://tawara.hatenablog.com/entry/2019/12/01/184927
